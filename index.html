@@ -1,67 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etkinlik Buluşma Platformu</title>
+    <title>Yan Menü</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <h1>Etkinlik Buluşma Platformu</h1>
-        </div>
-        <div class="header-right">
-            <button>Kayıt</button>
-        </div>
-    </header>
-    
-    <main>
-        <!-- Etkinlik görüntüleme alanı -->
-        <section class="event-display">
-            <h2>Etkinlik Görüntüleme Alanı</h2>
-            <!-- Etkinlikler buraya gelecek -->
-        </section>
+    <div id="menu-container">
+        <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav id="side-menu" class="closed">
+            <ul>
+                <li><a href="#">Hesabım</a></li>
+                <li><a href="#">Etkinliklerim</a></li>
+                <li><a href="#">Puanlama</a></li>
+                <li><a href="#">Plus Üye Ol</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+            </ul>
+        </nav>
+    </div>
 
-        <!-- Arama ve Harita alanı -->
-        <section class="map-search">
-            <input type="text" placeholder="Etkinlik Ara" class="search-bar">
-            <div id="map">
-                <p>HARİTA (Bölgesel)</p>
-            </div>
-        </section>
-
-        <!-- Chat, Değerlendirme ve Onaylama -->
-        <section class="chat-approve">
-            <h2>Chat/Değerlendirme/Onay</h2>
-            <!-- Chat ve onaylama alanı -->
-        </section>
-    </main>
-    
-    <!-- Etkinlik oluşturma alanı -->
-    <footer>
-        <div class="event-creation">
-            <h2>Etkinlik Oluştur</h2>
-            <form id="event-form">
-                <div class="form-group">
-                    <label for="event-title">Etkinlik Başlığı:</label>
-                    <input type="text" id="event-title" placeholder="Etkinlik adı girin">
-                </div>
-                <div class="form-group">
-                    <label for="event-location">Konum Seç:</label>
-                    <input type="text" id="event-location" placeholder="Konum girin">
-                </div>
-                <div class="form-group">
-                    <label for="participant-number">Katılımcı Sayısı:</label>
-                    <input type="number" id="participant-number" min="1" value="1">
-                </div>
-                <div class="form-group">
-                    <label for="user-count">Kullanıcı Sayısı:</label>
-                    <input type="number" id="user-count" min="1" value="1">
-                </div>
-                <button type="submit">Etkinlik Oluştur</button>
-            </form>
-        </div>
-    </footer>
+    <script src="app.js"></script>
 </body>
 </html>
