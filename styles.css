@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    height: 100vh; /* Tüm pencere yüksekliğini kaplasın */
+    display: flex;
+    flex-direction: column; /* Menü ve ana içeriği hizalayalım */
 }
 
 #menu-container {
@@ -56,30 +59,48 @@ body {
     background-color: #444;
 }
 
-/* Orta kısım (harita) */
+/* Ana İçerik */
+.main-content {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 20px); /* Menü butonuna yer açmak için ayarlama */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 40px; /* Menü butonunun üstünden boşluk */
+}
+
+/* Harita Konteyneri */
 .map-container {
-    flex: 1;
-    margin-left: 230px;
+    flex: 4; /* Haritanın geniş olmasını sağlar */
+    margin-left: 220px; /* Etkinlikler alanı ile boşluk */
+    margin-right: 20px;
+}
+.map-container h2{
+    position: relative;
+    text-align: center;
 }
 
 #map {
-    width: 75%;
-    height: 500px;
+    width: 100%;
+    height: 60%;
     background-color: #eaeaea;
 }
+
 /* Sağ kısım (etkinlikler) */
 .events-container {
-    width: 150px;
-    height: 100%;
-    flex: 1;
-    position:relative;
+    
+    width: 250px; /* Sabit genişlikte kalsın */
+    height: 63%;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .events-container h2 {
     font-size: 20px;
     margin-bottom: 20px;
+    position: relative;
+    text-align: center;
 }
