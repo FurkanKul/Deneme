@@ -26,12 +26,26 @@
         <div class="map-container">
             <h2>Harita</h2>
             <div id="map"></div>
+
+            <!-- Butonlar -->
+            <div class="buttons-container">
+                <button onclick="openPopup('katil')">Katıl</button>
+                <button onclick="openPopup('olustur')">Oluştur</button>
+            </div>
         </div>
 
         <!-- Sağ Kısım: Etkinlik Alanı -->
         <div class="events-container">
             <h2>Etkinlikler Alanı</h2>
             <!-- Bu alanı daha sonra dolduracaksınız -->
+        </div>
+    </div>
+
+    <!-- Pop-up Penceresi -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="popup-text"></p>
         </div>
     </div>
 
