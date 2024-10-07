@@ -1,24 +1,16 @@
+// Yan menüyü açma ve kapatma
 function toggleMenu() {
-  const sideMenu = document.getElementById("side-menu");
-  if (sideMenu.classList.contains("closed")) {
-      sideMenu.classList.remove("closed");
-      sideMenu.classList.add("open");
+  var menu = document.getElementById('side-menu');
+  if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
   } else {
-      sideMenu.classList.remove("open");
-      sideMenu.classList.add("closed");
+      menu.classList.add('open');
   }
 }
+
 // Pop-up açma fonksiyonu
-function openPopup(buttonType) {
+function openPopup() {
   var popup = document.getElementById('popup');
-  var popupText = document.getElementById('popup-text');
-
-  if (buttonType === 'katil') {
-      popupText.innerHTML = 'Katılma Ekranı';
-  } else if (buttonType === 'olustur') {
-      popupText.innerHTML = 'Oluşturma Ekranı';
-  }
-
   popup.style.display = 'flex';
 }
 
@@ -26,4 +18,12 @@ function openPopup(buttonType) {
 function closePopup() {
   var popup = document.getElementById('popup');
   popup.style.display = 'none';
-} 
+}
+
+// Form gönderme
+document.getElementById('event-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Form verilerini işleyebilirsiniz.
+  console.log('Etkinlik oluşturuldu!');
+  closePopup();
+});
