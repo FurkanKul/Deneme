@@ -104,7 +104,7 @@ body {
     position: relative;
     text-align: center;
 }
-/* Haritanın altında yer alan butonlar */
+/* Butonlar */
 .buttons-container {
     display: flex;
     justify-content: center;
@@ -143,9 +143,14 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
-    text-align: center;
+    width: 400px;
+    text-align: left;
     position: relative;
+}
+
+.popup-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .popup-content .close {
@@ -154,4 +159,39 @@ body {
     right: 15px;
     font-size: 24px;
     cursor: pointer;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup-content input[type="text"],
+.popup-content input[type="number"],
+.popup-content textarea,
+.popup-content select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-buttons button:hover {
+    background-color: #555;
 }
