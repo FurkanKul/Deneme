@@ -7,6 +7,88 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "API_KEY",
+          authDomain: "event-app-deneme.firebaseapp.com",
+          projectId: "event-app-deneme",
+          storageBucket: "event-app-deneme.appspot.com",
+          messagingSenderId: "1098932586929",
+          appId: "1:1098932586929:web:cc18e0bc0e35ca24345590"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    
+        // Initialize Firestore
+        const db = getFirestore(app);
+    
+        // Function to add event to Firestore
+        async function addEventToFirestore(category, address, participantCount, eventDetails, duration) {
+            try {
+                const docRef = await addDoc(collection(db, "events"), {
+                    category: category,
+                    address: address,
+                    participantCount: participantCount,
+                    eventDetails: eventDetails,
+                    duration: duration
+                });
+                console.log("Event added with ID: ", docRef.id);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        }
+    
+        // Function to fetch and display events
+        async function displayEvents() {
+            const eventsContainer = document.querySelector(".events-container");
+            eventsContainer.innerHTML = ""; // Clear previous events
+    
+            const querySnapshot = await getDocs(collection(db, "events"));
+            querySnapshot.forEach((doc) => {
+                const eventData = doc.data();
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event-card';
+                eventElement.innerHTML = `
+                    <h3>${eventData.category}</h3>
+                    <p>${eventData.address}</p>
+                    <p>Katılımcı Sayısı: ${eventData.participantCount}</p>
+                    <p>Detay: ${eventData.eventDetails}</p>
+                    <p>Süre: ${eventData.duration}</p>
+                `;
+                eventsContainer.appendChild(eventElement);
+            });
+        }
+    
+        // Call displayEvents on page load
+        displayEvents();
+    
+        // Add event listener to the form
+        const eventForm = document.getElementById('event-form');
+        eventForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form submission
+    
+            const category = document.getElementById('category').value;
+            const address = document.getElementById('address').value;
+            const participantCount = document.getElementById('participant-count').value;
+            const eventDetails = document.getElementById('event-details').value;
+            const duration = document.getElementById('duration').value;
+    
+            if (document.getElementById('agreement').checked && document.getElementById('terms').checked) {
+                addEventToFirestore(category, address, participantCount, eventDetails, duration);
+                displayEvents();  // Refresh the events list after adding a new event
+                closePopup();     // Close the popup
+            } else {
+                alert("Lütfen sözleşmeleri onaylayın.");
+            }
+        });
+    </script>
+    
     <div id="menu-container">
         <button id="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav id="side-menu" class="closed">
@@ -88,5 +170,6 @@
     </div>
 
     <script src="app.js"></script>
+    
 </body>
 </html>
