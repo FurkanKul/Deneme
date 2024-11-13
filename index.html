@@ -20,32 +20,25 @@
         </nav>
     </div>
 
-    <!-- Orta Kısım ve Sağ Kısım -->
     <div class="main-content">
-        <!-- Orta Kısım: Harita -->
         <div class="map-container">
             <h2>Harita</h2>
             <div id="map"></div>
-
-            <!-- Butonlar -->
             <div class="buttons-container">
                 <button onclick="openPopup()">Katıl</button>
                 <button onclick="openPopup()">Oluştur</button>
             </div>
         </div>
 
-        <!-- Sağ Kısım: Etkinlik Alanı -->
         <div class="events-container">
             <h2>Etkinlikler Alanı</h2>
         </div>
     </div>
 
-    <!-- Pop-up Penceresi -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closePopup()">&times;</span>
             <h2>Etkinlik Oluştur</h2>
-
             <form id="event-form">
                 <label for="category">Kategori:</label>
                 <select id="category">
@@ -80,8 +73,53 @@
                 </label>
 
                 <div class="form-buttons">
-                    <button type="submit">Oluştur</button>
+                    <button type="button" onclick="openPaymentPopup()">İlerle</button>
                     <button type="button" onclick="closePopup()">İptal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="payment-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePaymentPopup()">&times;</span>
+            <h2>Ödeme Bilgilerinizi Girin</h2>
+            <form id="payment-form">
+                <label for="card-name">Kart Üzerindeki İsim:</label>
+                <input type="text" id="card-name" placeholder="Kart üzerindeki isim" />
+
+                <label for="card-number">Kart Numarası:</label>
+                <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" />
+
+                <label for="expiry-date">Son Kullanma Tarihi:</label>
+                <div class="expiry-cvv">
+                    <select id="expiry-month">
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select id="expiry-year">
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                    </select>
+                </div>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" maxlength="3" placeholder="XXX" />
+
+                <div class="form-buttons">
+                    <button type="submit">Öde</button>
                 </div>
             </form>
         </div>

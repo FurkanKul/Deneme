@@ -3,9 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    height: 100vh; /* Tüm pencere yüksekliğini kaplasın */
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Menü ve ana içeriği hizalayalım */
+    flex-direction: column;
 }
 
 #menu-container {
@@ -59,23 +59,21 @@ body {
     background-color: #444;
 }
 
-/* Ana İçerik */
 .main-content {
     display: flex;
     width: 100%;
-    height: calc(100vh - 20px); /* Menü butonuna yer açmak için ayarlama */
+    height: calc(100vh - 20px);
     padding: 10px;
     box-sizing: border-box;
-    margin-top: 40px; /* Menü butonunun üstünden boşluk */
+    margin-top: 40px;
 }
 
-/* Harita Konteyneri */
 .map-container {
-    flex: 4; /* Haritanın geniş olmasını sağlar */
-    margin-left: 220px; /* Etkinlikler alanı ile boşluk */
+    flex: 4;
+    margin-left: 220px;
     margin-right: 20px;
 }
-.map-container h2{
+.map-container h2 {
     position: relative;
     text-align: center;
 }
@@ -86,10 +84,8 @@ body {
     background-color: #eaeaea;
 }
 
-/* Sağ kısım (etkinlikler) */
 .events-container {
-    
-    width: 250px; /* Sabit genişlikte kalsın */
+    width: 250px;
     height: 63%;
     background-color: #fff;
     padding: 20px;
@@ -104,7 +100,7 @@ body {
     position: relative;
     text-align: center;
 }
-/* Butonlar */
+
 .buttons-container {
     display: flex;
     justify-content: center;
@@ -125,9 +121,8 @@ body {
     background-color: #555;
 }
 
-/* Pop-up stilizasyonu */
 .popup {
-    display: none; /* Başlangıçta gizli olacak */
+    display: none;
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -195,3 +190,9 @@ body {
 .form-buttons button:hover {
     background-color: #555;
 }
+
+.expiry-cvv {
+    display: flex;
+    gap: 10px;
+}
+    
