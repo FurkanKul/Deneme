@@ -20,10 +20,20 @@ function closePopup() {
   popup.style.display = 'none';
 }
 
+// Ödeme pop-up'ını açma fonksiyonu
+function openPaymentPopup() {
+  closePopup();
+  document.getElementById("payment-popup").style.display = "flex";
+}
+
+// Ödeme pop-up'ını kapatma fonksiyonu
+function closePaymentPopup() {
+  document.getElementById("payment-popup").style.display = "none";
+}
+
 // Form gönderme
 document.getElementById('event-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  // Form verilerini işleyebilirsiniz.
   console.log('Etkinlik oluşturuldu!');
   closePopup();
 });
